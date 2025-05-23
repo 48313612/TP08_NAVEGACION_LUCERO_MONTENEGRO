@@ -1,11 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { Button, TextInput, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Ionicons } from '@expo/vector-icons';
+import { HomeScreen  } from './src/screens/HomeScreen';
+
+function ScreenHome() {
+  const navigation = useNavigation();
+  return (
+    <View>
+      <HomeScreen/>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home"     component={StackHomeNavigator} />
+      <Tab.Screen name="Buscador" component={StackBuscadorNavigator} />
+      <Tab.Screen name="Perfil"   component={StackPerfilNavigator}/ >
+      <Tab.Screen name="Ajustes"   component={StackAjustesNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="home-outline" size={24} color={color} />,
+            <Ionicons name="search-outline" size={24} color={color} />,
+            <Ionicons name="person-circle-outline" size={24} color={color} />,
+            <Ionicons name="settings-outline" size={24} color={color} />
+           ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
     </View>
   );
 }
