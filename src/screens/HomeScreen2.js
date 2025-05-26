@@ -2,12 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
-export function HomeScreen () {
+export function HomeScreen2 ( route ) {
   const navigation = useNavigation();
+  const { nombre, edad } = route.params;
   return (
     <View style={styles.container}>
       <Text> Bienvenido a HomeScreen 2</Text>
-      <Button title="Volver" onPress={() => navigation.navigate('HomeScreen')} />
+      <Text> Datos recibidos:</Text>
+      <Text>Nombre: {nombre}</Text>
+      <Text>Edad: {edad}</Text> 
     </View>
   );
 }
@@ -15,7 +18,7 @@ export function HomeScreen () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DD9979',
+    backgroundColor: '#BED8D4',
     alignItems: 'center',
     justifyContent: 'center',
   },

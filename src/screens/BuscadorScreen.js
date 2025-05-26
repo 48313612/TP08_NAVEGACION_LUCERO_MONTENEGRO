@@ -6,7 +6,7 @@ export function BuscadorScreen () {
     const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text> Bienvenido a BuscadorScreen </Text>
+      <Text> Bienvenido a BuscadorScreen 1</Text>
       <Button title="IR A BuscadorScreen2" onPress={() => navigation.navigate('BuscadorScreen2')} />
     </View>
   );
@@ -15,7 +15,7 @@ export function BuscadorScreen () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DC80D2',
+    backgroundColor: '#78D5D7',
     alignItems: 'center',
     justifyContent: 'center',
   },

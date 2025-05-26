@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, TextInput, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -8,6 +8,10 @@ import { HomeScreen  } from './src/screens/HomeScreen';
 import { BuscadorScreen  } from './src/screens/BuscadorScreen';
 import { PerfilScreen } from './src/screens/PerfilScreen';
 import { AjustesScreen } from './src/screens/AjustesScreen';
+import { HomeScreen2  } from './src/screens/HomeScreen2';
+import { BuscadorScreen2  } from './src/screens/BuscadorScreen2';
+import { PerfilScreen2 } from './src/screens/PerfilScreen2';
+import { AjustesScreen2 } from './src/screens/AjustesScreen2';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +47,6 @@ function StackAjustesNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="AjustesScreen" component={AjustesScreen} />
       <Stack.Screen name="AjustesScreen2" component={AjustesScreen2} />
-
     </Stack.Navigator>
   );
 }
@@ -52,18 +55,34 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home"     component={StackHomeNavigator} />
-      <Tab.Screen name="Buscador" component={StackBuscadorNavigator} />
-      <Tab.Screen name="Perfil"   component={StackPerfilNavigator} />
-      <Tab.Screen name="Ajustes"   component={StackAjustesNavigator} />
+      <Tab.Screen name="Home" component={StackHomeNavigator}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="home-outline" size={24} color={color} />,
-            <Ionicons name="search-outline" size={24} color={color} />,
-            <Ionicons name="person-circle-outline" size={24} color={color} />,
-            <Ionicons name="settings-outline" size={24} color={color} />
-           ),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home-outline" size={size} color={color} />
+          ),
         }}
+      />
+      <Tab.Screen name="Buscador" component={StackBuscadorNavigator}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="search-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen name="Perfil" component={StackPerfilNavigator}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person-circle-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen name="Ajustes" component={StackAjustesNavigator}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings-outline" size={size} color={color} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }

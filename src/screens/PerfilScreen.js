@@ -12,11 +12,10 @@ export function PerfilScreen() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DC80D2',
+    backgroundColor: '#63D2FF',
     alignItems: 'center',
     justifyContent: 'center',
   },
