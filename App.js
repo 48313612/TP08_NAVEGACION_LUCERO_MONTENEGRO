@@ -5,13 +5,46 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import { HomeScreen  } from './src/screens/HomeScreen';
+import { BuscadorScreen  } from './src/screens/BuscadorScreen';
+import { PerfilScreen } from './src/screens/PerfilScreen';
+import { AjustesScreen } from './src/screens/AjustesScreen';
 
-function ScreenHome() {
-  const navigation = useNavigation();
+const Stack = createNativeStackNavigator();
+
+function StackHomeNavigator() {
   return (
-    <View>
-      <HomeScreen/>
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="HomeScreen2" component={HomeScreen2} />
+    </Stack.Navigator>
+  );
+}
+
+function StackBuscadorNavigator() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="BuscadorScreen" component={BuscadorScreen} />
+      <Stack.Screen name="BuscadorScreen2" component={BuscadorScreen2} />
+    </Stack.Navigator>
+  );
+}
+
+function StackPerfilNavigator() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="PerfilScreen" component={PerfilScreen} />
+      <Stack.Screen name="PerfilScreen2" component={PerfilScreen2} />
+    </Stack.Navigator>
+  );
+}
+
+function StackAjustesNavigator() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="AjustesScreen" component={AjustesScreen} />
+      <Stack.Screen name="AjustesScreen2" component={AjustesScreen2} />
+
+    </Stack.Navigator>
   );
 }
 
@@ -21,8 +54,8 @@ function MyTabs() {
     <Tab.Navigator>
       <Tab.Screen name="Home"     component={StackHomeNavigator} />
       <Tab.Screen name="Buscador" component={StackBuscadorNavigator} />
-      <Tab.Screen name="Perfil"   component={StackPerfilNavigator}/ >
-      <Tab.Screen name="Ajustes"   component={StackAjustesNavigator}
+      <Tab.Screen name="Perfil"   component={StackPerfilNavigator} />
+      <Tab.Screen name="Ajustes"   component={StackAjustesNavigator} />
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="home-outline" size={24} color={color} />,
@@ -31,17 +64,18 @@ function MyTabs() {
             <Ionicons name="settings-outline" size={24} color={color} />
            ),
         }}
-      />
     </Tab.Navigator>
   );
 }
 
 export default function App() {
   return (
-    <View style={styles.container}>
-    </View>
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

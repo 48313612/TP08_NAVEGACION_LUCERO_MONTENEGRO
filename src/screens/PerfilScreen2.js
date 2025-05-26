@@ -2,20 +2,21 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
-export function HomeScreen () {
+export function PerfilScreen() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text> Bienvenido a HomeScreen 2</Text>
-      <Button title="Volver" onPress={() => navigation.navigate('HomeScreen')} />
+      <Text>Bienvenido a PerfilScreen 12</Text>
+      <Button title="Volver" onPress={() => navigation.navigate('PerfilScreen')} />
     </View>
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DD9979',
+    backgroundColor: '#DC80D2',
     alignItems: 'center',
     justifyContent: 'center',
   },
